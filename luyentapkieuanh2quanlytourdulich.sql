@@ -145,12 +145,18 @@ from city join traveldestinations on city.id = traveldestinations.city_id
 join tour on tour.traveldestinations_id = traveldestinations.id
 group by city.name;
 
--- select  traveldestinations.description, count(tour.daystart)
--- from  tour join traveldestinations on tour.traveldestinations_id = traveldestinations.id
--- group by traveldestinations.description;
 
+
+-- lấy ra id của các tour du lịch bắt đầu tại tháng 3
 select   tour.id,count(tour.daystart)
 from  tour 
-where month(tour.daystart) = '2'
+where month(tour.daystart) = '3'
 group by 
-tour.id
+tour.id;
+
+ -- lấy ra id của các tour du lịch có kết thúc tại tháng 4
+select   tour.id,count(tour.dayend)
+from  tour 
+where month(tour.dayend) = '4'
+group by 
+tour.id;
